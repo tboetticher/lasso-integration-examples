@@ -1,0 +1,7 @@
+source "https://rubygems.org"
+
+gem "dotenv", require: "dotenv/load"
+gem "aws-sdk-sts"
+gem "aws-sdk-bedrockruntime"
+gem "nokogiri"
+gem "fiddle"
