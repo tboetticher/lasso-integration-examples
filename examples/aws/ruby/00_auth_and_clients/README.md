@@ -32,10 +32,10 @@ Use these examples to decide **how you want to provide AWS credentials** and **h
 
 2. Environment variables
 
-   Each example loads the repo-level `.env` file:
+   Each example loads the shared examples `.env` file:
 
    ```text
-   ../../../../.env
+   examples/.env
    ```
 
    Required for all examples:
@@ -225,4 +225,3 @@ If everything is configured properly, you'll see a short response from the model
 - Prefer managed or short-lived AWS credentials over long-lived static access keys.
 - Keep Bedrock traffic routed through Lasso when Lasso is required for policy enforcement, inspection, reporting, or audit.
 - Avoid logging prompts or model outputs unless the application is approved to store that data.
-

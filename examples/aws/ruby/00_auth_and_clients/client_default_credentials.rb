@@ -46,7 +46,7 @@ end
 # 1. Load configuration
 # -----------------------------------------------------------------------------
 
-env_path = File.expand_path('../../../../.env', __dir__)
+env_path = File.expand_path('../../../.env', __dir__)
 
 raise "Missing .env file at #{env_path}" unless File.exist?(env_path)
 
