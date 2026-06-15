@@ -7,10 +7,10 @@ Thumbs.db
 # -----------------------------------------------------------------------------
 # Environment files and secrets
 # -----------------------------------------------------------------------------
-.env
-.env.*
-!.env.example
-.env
+examples/.env
+examples/.env.example
+!examples/.env.example
+examples/.env
 examples/**/.env
 examples/**/.env.*
 
@@ -104,3 +104,10 @@ artifacts/
 dist/
 build/
 out/
+
+# -----------------------------------------------------------------------------
+# Jekyll local output
+# -----------------------------------------------------------------------------
+docs/_site/
+docs/.jekyll-cache/
+docs/.jekyll-metadata
