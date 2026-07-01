@@ -35,7 +35,7 @@ load_dotenv()
 
 
 # 1. Load configuration
-lasso_proxy_endpoint = os.getenv("LASSO_PROXY_ENDPOINT")
+lasso_proxy_url = os.getenv("LASSO_PROXY_ENDPOINT")
 lasso_api_key = os.getenv("LASSO_X_API_KEY")
 
 region = os.getenv("AWS_REGION", "us-east-1")
@@ -60,7 +60,7 @@ credentials = assumed_role["Credentials"]
 bedrock_client = boto3.client(
     "bedrock-runtime",
     region_name=region,
-    endpoint_url=lasso_proxy_endpoint,
+    endpoint_url=f"{lasso_proxy_url}/v1/bedrock",
     aws_access_key_id=credentials["AccessKeyId"],
     aws_secret_access_key=credentials["SecretAccessKey"],
     aws_session_token=credentials["SessionToken"],

@@ -55,11 +55,11 @@ def create_bedrock_client_from_env() -> boto3.client:
     """
     load_dotenv()
 
-    lasso_proxy_endpoint = os.getenv("LASSO_PROXY_ENDPOINT")  # must include `/v1/bedrock`
+    lasso_proxy_url = os.getenv("LASSO_PROXY_ENDPOINT")  # must include `/v1/bedrock`
     lasso_api_key = os.getenv("LASSO_X_API_KEY")
     region = os.getenv("AWS_REGION", "us-east-1")
 
-    if not lasso_proxy_endpoint:
+    if not lasso_proxy_url:
         raise RuntimeError("LASSO_PROXY_ENDPOINT is not set.")
     if not lasso_api_key:
         raise RuntimeError("LASSO_X_API_KEY is not set.")
@@ -67,7 +67,7 @@ def create_bedrock_client_from_env() -> boto3.client:
     client = boto3.client(
         "bedrock-runtime",
         region_name=region,
-        endpoint_url=lasso_proxy_endpoint,
+        endpoint_url=f"{lasso_proxy_url}/v1/bedrock",
         # Set verify=False only for dev/self-signed certs. Prefer True in production.
         verify=False,
     )

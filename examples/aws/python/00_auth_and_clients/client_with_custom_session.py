@@ -28,7 +28,7 @@ load_dotenv()
 
 
 # 1. Load configuration
-lasso_proxy_endpoint = os.getenv("LASSO_PROXY_ENDPOINT")
+lasso_proxy_url = os.getenv("LASSO_PROXY_ENDPOINT")
 lasso_api_key = os.getenv("LASSO_X_API_KEY")
 
 region = os.getenv("AWS_REGION", "us-east-1")
@@ -51,7 +51,7 @@ session = boto3.Session(
 # 3. Create Bedrock client from the custom session and point it to Lasso
 bedrock_client = session.client(
     "bedrock-runtime",
-    endpoint_url=lasso_proxy_endpoint,
+    endpoint_url=f"{lasso_proxy_url}/v1/bedrock",
     config=Config(
         retries={"max_attempts": 1, "mode": "standard"},
         connect_timeout=5,

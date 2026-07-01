@@ -116,7 +116,7 @@ def converse_with_retry(client, *, model_id: str, prompt: str, max_attempts: int
 
 
 # Load configuration
-lasso_proxy_endpoint = os.getenv("LASSO_PROXY_ENDPOINT")
+lasso_proxy_url = os.getenv("LASSO_PROXY_ENDPOINT")
 lasso_api_key = os.getenv("LASSO_X_API_KEY")
 
 region = os.getenv("AWS_REGION", "us-east-1")
@@ -131,7 +131,7 @@ model_id = os.getenv("BEDROCK_TEXT_MODEL_ID")
 bedrock_client = boto3.client(
     "bedrock-runtime",
     region_name=region,
-    endpoint_url=lasso_proxy_endpoint,
+    endpoint_url=f"{lasso_proxy_url}/v1/bedrock",
     aws_access_key_id=access_key,
     aws_secret_access_key=secret_key,
     aws_session_token=session_token,

@@ -87,7 +87,7 @@ class BedrockClientFactory:
         client_kwargs = {
             "service_name": "bedrock-runtime",
             "region_name": region,
-            "endpoint_url": endpoint_url,
+            "endpoint_url": f"{endpoint_url}/v1/bedrock",
             "verify": verify_ssl,
             "config": config or Config(
                 signature_version="v4",
